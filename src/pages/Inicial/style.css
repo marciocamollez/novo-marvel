@@ -1,0 +1,70 @@
+.widget{
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 25px;
+}
+.personagem--ordenacao{
+    display: flex;
+    align-items: center;
+}
+.personagem--ordenacao p{
+    color: red;
+}
+.personagem--ordenacao img{
+    display: inline-block;
+    margin-right: 15px;
+}
+input[type=checkbox]{
+    display:none;
+}
+input[type=checkbox] + label{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    width: 75px;
+    height: 41px;
+    background-image: url(/public/toggle_off.svg);
+}
+input[type=checkbox]:checked + label{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    width: 75px;
+    height: 41px;
+    background-image: url(/public/toggle_on.svg);
+}
+.personagem--ordenacao__check{
+    display: flex;
+    align-items: center;
+}
+.personagem--ordenacao__check p{
+    margin-right: 15px;
+}
+header.inicial {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+header.inicial h1{
+    font-family: sans-serif;
+    font-size: 2rem;
+    color: #404040;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+header.inicial p {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #404040;
+    text-align: center;
+}
+
+@media(max-width: 767px){
+    .widget{
+        flex-direction: column;
+    }
+}
