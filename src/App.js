@@ -1,12 +1,17 @@
+import { BrowserRouter } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+//Importando arquivo de Rotas
+import { AppRoutes } from './routes';
+
+export const App = () => {
   return (
-    <div>
-      <h1>Olá</h1>
-    </div>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
 
 export default App;
+
