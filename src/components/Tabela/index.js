@@ -7,7 +7,7 @@ export const Tabela = ({items, carregando}) => {
         <section className="personagem--box">
             {
                 items.map(item => (
-                    <div className="personagem--item">
+                    <div key={item.id} className="personagem--item">
                         <div>
                             <Link to={`/personagem/${item.id}`}>
                                 <img src={item.thumbnail.path + "/standard_fantastic.jpg"} alt={item.name} />
