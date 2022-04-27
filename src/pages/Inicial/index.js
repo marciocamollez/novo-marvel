@@ -5,6 +5,7 @@ import logo from '../../logo.svg';
 
 import { Tabela } from '../../components/Tabela';
 import { Busca } from '../../components/Busca';
+import { Contagem } from '../../components/Contagem';
 
 //hash = timestamp (1) + private key + public key convertido em md5
 const hash = "21beb75ca82b20e52c8910f3e6599d79"
@@ -16,6 +17,7 @@ export const Inicial = () => {
     const [items, setItems] = useState([]);
     const [carregando, setCarregando] = useState(true);
     const [query, setQuery] = useState('');
+    const [contagem, setContagem] = useState([]);
 
     useEffect(() => {
         const fetch = async() => {
@@ -23,10 +25,12 @@ export const Inicial = () => {
                 const result = await axios(`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=${apikey}&hash=${hash}`);
                 setItems(result.data.data.results);
                 setCarregando(false);
+                setContagem(result.data.data.count);
             } else {
                 const result = await axios(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=${apikey}&hash=${hash}`);
                 setItems(result.data.data.results);
                 setCarregando(false);
+                setContagem(result.data.data.count);
                 
             }
         }
@@ -43,6 +47,10 @@ export const Inicial = () => {
             </header>
 
             <Busca search={(q) => setQuery(q)}></Busca>
+
+            <div className="widget">
+                <Contagem contagem={contagem} carregando={carregando} />
+            </div>
 
             <Tabela items={items} carregando={carregando} />
         </div>
