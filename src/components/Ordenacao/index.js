@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 /* recebe o valor true ou false e armazena na variável check */
 

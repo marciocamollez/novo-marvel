@@ -7,7 +7,7 @@ import axios from 'axios';
 const hash = "21beb75ca82b20e52c8910f3e6599d79"
 const apikey = "eb8c78fd1e6e98315a9d42fff3b5c040"
 
-export const Personagem = (props) => {
+export const Personagem = () => {
 
     const [items, setItems] = useState([]);  
     const [quadrinhos, setQuadrinhos] = useState([]);
@@ -31,62 +31,64 @@ export const Personagem = (props) => {
     },[])
 
     return(
-        <div className="container">
-            <div className="cabecalho--personagem">
-                <header className="header--personagem">
-                    <div><Link to="/"><img src="/logo_menor.svg" alt="Marvel" title="Marvel" /></Link></div>
-                </header>
-            </div>
+        <div className='background-green'>
+            <div className="container">
+                <div className="cabecalho--personagem">
+                    <header className="header--personagem">
+                        <div><Link to="/"><img src="/logo_menor.svg" alt="Marvel" title="Marvel" /></Link></div>
+                    </header>
+                </div>
 
-            {/*<h3>Personagem nº{params.id}</h3>*/}
+                {/*<h3>Personagem nº{params.id}</h3>*/}
 
-            <section>
-                {
-                    items.map(item => (
-                        <div key={item.id} className="personagem--box">
-                            <div className="personagem--details">
-                            <h1>{item.name}</h1>
-                            <p>{item.description}</p>
-
-                            <div className="personagem--numbers">
-                                <div className="personagem--numbers__quadrinhos">
-                                    <p><strong>Quadrinhos:<br /></strong> 
-                                    <img src="/ic_quadrinhos.svg" alt="Quadrinhos" /> <span>{item.comics.available}</span></p>
-                                </div>
-
-                                <div>
-                                    <p><strong>Filmes:<br /></strong> 
-                                    <img src="/ic_trailer.svg" alt="Filmes" /> <span>{item.series.available}</span></p>
-                                </div>
-                            </div>
-                            
-                            <p><strong>Último lançamento:</strong> {item.comics.items[0].name}</p>
-                            </div>
-
-                            <div className="personagem--image">
-                                <div><img src={item.thumbnail.path + "/detail.jpg"} alt={item.name} /></div>
-                            </div>
-
-                            
-                        
-                        </div>
-                        
-                    ))
-                }
-
-                <section className="personagem--aparicoes">
-                    <h2>Todas as aparições:</h2>
+                <section>
                     {
-                        quadrinhos.map(item => (
-                        <div key={item.name}>
-                            <p>{item.name}</p>
-                        </div>
+                        items.map(item => (
+                            <div key={item.id} className="personagem--box">
+                                <div className="personagem--details">
+                                <h1>{item.name}</h1>
+                                <p>{item.description}</p>
+
+                                <div className="personagem--numbers">
+                                    <div className="personagem--numbers__quadrinhos">
+                                        <p><strong>Quadrinhos:<br /></strong> 
+                                        <img src="/ic_quadrinhos.svg" alt="Quadrinhos" /> <span>{item.comics.available}</span></p>
+                                    </div>
+
+                                    <div>
+                                        <p><strong>Filmes:<br /></strong> 
+                                        <img src="/ic_trailer.svg" alt="Filmes" /> <span>{item.series.available}</span></p>
+                                    </div>
+                                </div>
+                                
+                                <p><strong>Último lançamento:</strong> {item.comics.items[0].name}</p>
+                                </div>
+
+                                <div className="personagem--image">
+                                    <div><img src={item.thumbnail.path + "/detail.jpg"} alt={item.name} /></div>
+                                </div>
+
+                                
+                            
+                            </div>
+                            
                         ))
                     }
+
+                    <section className="personagem--aparicoes">
+                        <h2>Todas as aparições:</h2>
+                        {
+                            quadrinhos.map(item => (
+                            <div key={item.name}>
+                                <p>{item.name}</p>
+                            </div>
+                            ))
+                        }
+                    </section>
+
                 </section>
 
-            </section>
-
+            </div>
         </div>
     )
 }
