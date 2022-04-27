@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { Inicial } from '../pages/Inicial';
 import { Personagem } from '../pages/Personagem';
 
