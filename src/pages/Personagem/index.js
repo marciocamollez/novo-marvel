@@ -3,11 +3,17 @@ import './style.css';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
+import { Busca } from '../../components/Busca';
+import { ResultadoBuscaInterna } from '../../components/ResultadoBuscaInterna';
+
 //hash = timestamp (1) + private key + public key convertido em md5
 const hash = "21beb75ca82b20e52c8910f3e6599d79"
 const apikey = "eb8c78fd1e6e98315a9d42fff3b5c040"
 
 export const Personagem = () => {
+
+    const [query, setQuery] = useState('');
+    const [resultadosBusca, setResultadosBusca] = useState([]);  
 
     const [items, setItems] = useState([]);  
     const [quadrinhos, setQuadrinhos] = useState([]);
@@ -28,17 +34,33 @@ export const Personagem = () => {
       }
   
       fetch()
-    },[])
+    },[items]); //A cada clique feito na busca interna, vai ser preciso refatorar o items
+
+    //Busca da página de personagens
+    useEffect(() => {
+        const fetch3 = async() => {
+            if(query){
+                const result = await axios(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=${apikey}&hash=${hash}`);
+                setResultadosBusca(result.data.data.results);
+                
+            } 
+        }
+
+        fetch3();
+    },[query]);
 
     return(
         <div className='background-green'>
             <div className="container">
                 <div className="cabecalho--personagem">
                     <header className="header--personagem">
-                        <div><Link to="/"><img src="/logo_menor.svg" alt="Marvel" title="Marvel" /></Link></div>
+                        <div className="logo--personagem"><Link to="/"><img src="/logo_menor.svg" alt="Marvel" title="Marvel" /></Link></div>
+                        <Busca search={(q) => setQuery(q)}></Busca>
+                        
                     </header>
                 </div>
-
+                <ResultadoBuscaInterna resultadosBusca={resultadosBusca} />
+                
                 {/*<h3>Personagem nº{params.id}</h3>*/}
 
                 <section>
@@ -61,7 +83,7 @@ export const Personagem = () => {
                                     </div>
                                 </div>
                                 
-                                <p><strong>Último lançamento:</strong> {item.comics.items[0].name}</p>
+                                {/*<p><strong>Último lançamento:</strong> {item.comics.items[0].name}</p>*/}
                                 </div>
 
                                 <div className="personagem--image">

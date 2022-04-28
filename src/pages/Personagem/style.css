@@ -52,9 +52,12 @@
     align-items: center;
 }
 .header--personagem{
-    padding-top: 50px;
-    padding-bottom: 50px;
-    display: inline-block;
+    display: flex;
+    width: 100%;
+}
+.logo--personagem{
+    padding-top: 70px;
+    margin-right: 30px;
 }
 @media(max-width: 767px){
     .personagem--image{

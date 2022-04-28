@@ -1,6 +1,7 @@
 import React from "react";
 import './style.css';
 import { Link } from 'react-router-dom';
+import LikeButton from "../LikeButton";
 
 export const Tabela = ({items, carregando}) => {
     return carregando ? <h1>Carregando...</h1> : 
