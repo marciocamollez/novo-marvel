@@ -6,7 +6,7 @@ export const Contagem = ({contagem, carregando}) => {
     return(
         <span className="personagem--count">
 
-            {carregando ? "" : <p>Encontrados {contagem} heróis</p>}
+            {carregando ? "" : <p data-testid="contar-herois">Encontrados {contagem} heróis</p>}
         </span>
 
     );

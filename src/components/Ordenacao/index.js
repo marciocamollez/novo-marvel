@@ -10,7 +10,7 @@ export const Ordenacao = ({order, check}) => {
               <span><img src="/ic_heroi.svg" alt="Ordenar" /></span>
               <span className="personagem--ordenacao__check">
                   <p>Ordenar por nome A-Z:</p> 
-                  <input id="checkbutton" type="checkbox" defaultChecked={order} onChange={check} /><label htmlFor="checkbutton"></label>
+                  <input id="checkbutton" type="checkbox" defaultChecked={order} onChange={check} data-testid="ordenar" /><label htmlFor="checkbutton"></label>
                  
               </span>
             </span>
