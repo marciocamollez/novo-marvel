@@ -3,7 +3,11 @@ import './style.css';
 import { Link } from 'react-router-dom';
 import LikeButton from "../LikeButton";
 
-export const Tabela = ({items, carregando}) => {
+
+
+
+export const Tabela = ({items, carregando}) => {    
+
     return carregando ? <h1>Carregando...</h1> : 
         <section className="personagem--box">
             {
@@ -18,7 +22,7 @@ export const Tabela = ({items, carregando}) => {
             
                         <div className="personagem--nomes">
                             <div><Link to={`/personagem/${item.id}`}><h2>{item.name}</h2></Link></div>
-                            
+                            {/*<LikeButton items={item.name} />*/}
                         </div>
                     </div>
                 ))
