@@ -63,6 +63,27 @@ header.inicial p {
     text-align: center;
 }
 
+/*Paginaçao*/
+.paginacao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.paginacao div {
+    background: #fff;
+    color: red;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid red;
+    cursor: pointer;
+}
+.paginacao div:hover {
+    background: red;
+    color: #FFF;
+}
+
 @media(max-width: 767px){
     .widget{
         flex-direction: column;
