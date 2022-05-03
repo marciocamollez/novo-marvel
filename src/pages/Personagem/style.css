@@ -72,5 +72,9 @@
         align-items: center;
         justify-content: center;
     }
+    .header--personagem{
+        flex-direction: column;
+        align-items: center;
+    }
     
 }
