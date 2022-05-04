@@ -10,6 +10,7 @@ import { Ordenacao } from '../../components/Ordenacao';
 
 
 //hash = timestamp (1) + private key + public key convertido em md5
+//Hash da primeira conta criada. Deixar como backup
 //const hash = "21beb75ca82b20e52c8910f3e6599d79"
 //const apikey = "eb8c78fd1e6e98315a9d42fff3b5c040"
 const hash = "e8a129eee49b78fd4436bf9bb8102b3d";
@@ -51,10 +52,10 @@ export const Inicial = () => {
                 setContagem(result.data.data.count);
                 
             }
+            
         }
-
         fetchSearch();
-        console.log("Carregou useEffect 1");
+        
     },[query]);
 
     //Ordenacao
@@ -75,10 +76,11 @@ export const Inicial = () => {
             setOrder(false);
             setCarregando(false);
           }
+          
         }
     
         fetchOrder();
-        console.log("Carregou useEffect 2");
+        
       },[order]);
 
       //Paginação
@@ -98,11 +100,11 @@ export const Inicial = () => {
           setPages(arrayPages);
           setItems(result.data.data.results);
           setOffset(offset + 20); //Offset de 20 em 20 personagens para trocar a página
-
+          
         }
     
         fetchPages();
-        console.log("Carregou useEffect 3");
+        
       },[currentPage, limit, total]);
 
     return(

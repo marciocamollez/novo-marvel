@@ -7,6 +7,7 @@ import { Busca } from '../../components/Busca';
 import { ResultadoBuscaInterna } from '../../components/ResultadoBuscaInterna';
 
 //hash = timestamp (1) + private key + public key convertido em md5
+//Hash da primeira conta criada. Deixar como backup
 //const hash = "21beb75ca82b20e52c8910f3e6599d79"
 //const apikey = "eb8c78fd1e6e98315a9d42fff3b5c040"
 
